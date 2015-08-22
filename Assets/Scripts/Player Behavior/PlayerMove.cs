@@ -10,8 +10,8 @@ public class PlayerMove : AbstractBehavior
         var moveX = Input.GetAxis("Horizontal");
         var moveY = Input.GetAxis("Vertical");
 
-        var impulse = new Vector2(moveX, moveY);
+        var impulse = new Vector2(moveX, moveY) * speed;
 
-        transform.position += (Vector3)impulse;
+        _rb2d.AddForce(impulse);
     }
 }
